@@ -1,4 +1,4 @@
-package com.paramenta.challenge.employee.application;
+package com.paramenta.challenge.employee.application.dto;
 
 import java.time.LocalDateTime;
 import java.util.Map;

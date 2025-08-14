@@ -1,4 +1,4 @@
-package com.paramenta.challenge.employee.application;
+package com.paramenta.challenge.employee.application.dto;
 
 
 import jakarta.validation.constraints.*;

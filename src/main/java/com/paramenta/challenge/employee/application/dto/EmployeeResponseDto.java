@@ -1,4 +1,4 @@
-package com.paramenta.challenge.employee.application;
+package com.paramenta.challenge.employee.application.dto;
 
 import com.fasterxml.jackson.annotation.JsonFormat;
 import java.time.LocalDate;
