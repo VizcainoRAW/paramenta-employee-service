@@ -1,6 +1,9 @@
 package com.paramenta.challenge.employee.application.dto;
 
 import java.time.LocalDate;
+
+import com.paramenta.challenge.employee.domain.model.Employee;
+
 import lombok.Getter;
 import lombok.Setter;
 import jakarta.xml.bind.annotation.XmlAccessorType;
@@ -33,6 +36,38 @@ public class EmployeeSoapRequest {
         this.hireDate = hireDate;
         this.position = position;
         this.salary = salary;
+    }
+
+    public EmployeeSoapRequest(Employee employee){
+        this.firstName = employee.getFirstName();
+        this.lastName = employee.getLastName();
+        this.documentType = employee.getDocumentType();
+        this.documentNumber = employee.getDocumentNumber();
+        this.birthDate = employee.getBirthDate();
+        this.hireDate = employee.getHireDate();
+        this.position = employee.getPosition();
+        this.salary = employee.getSalary();
+    }
+
+    public String toXml() {
+        return "<soapenv:Envelope xmlns:soapenv=\"http://schemas.xmlsoap.org/soap/envelope/\" " +
+                "xmlns:gs=\"http://www.paramenta.com/challenge/employee\">" +
+                "<soapenv:Header/>" +
+                "<soapenv:Body>" +
+                "<gs:saveEmployeeRequest>" +
+                "<gs:employee>" +
+                "<gs:firstName>" + getFirstName() + "</gs:firstName>" +
+                "<gs:lastName>" + getLastName() + "</gs:lastName>" +
+                "<gs:documentType>" + getDocumentType() + "</gs:documentType>" +
+                "<gs:documentNumber>" + getDocumentNumber() + "</gs:documentNumber>" +
+                "<gs:birthDate>" + getBirthDate() + "</gs:birthDate>" +
+                "<gs:hireDate>" + getHireDate() + "</gs:hireDate>" +
+                "<gs:position>" + getPosition() + "</gs:position>" +
+                "<gs:salary>" + getSalary() + "</gs:salary>" +
+                "</gs:employee>" +
+                "</gs:saveEmployeeRequest>" +
+                "</soapenv:Body>" +
+                "</soapenv:Envelope>";
     }
 
 }
